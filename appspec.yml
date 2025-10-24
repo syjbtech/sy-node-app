@@ -4,11 +4,10 @@ files:
   - source: /
     destination: /home/ec2-user/nodeapp
 hooks:
-  BeforeInstall:
+  AfterInstall:
     - location: scripts/change_owner.sh
       timeout: 300
       runas: root   # 소유자 변경은 root 권한 필요
-  AfterInstall:
     - location: scripts/start.sh
       timeout: 300
       runas: ec2-user
